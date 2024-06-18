@@ -30,17 +30,13 @@ export const routes: Routes = [
     {
         path:'myJobs',component:MyJobsComponent
       },{
-        path:'applications',component:ApplicationsComponent
-    },  {
         path:'setting',component:SettingComponent
     },
 ]},
     
     
-    {
-        path:'candidates',component:CandidatesComponent},
-       
-        
+    {path:'candidates',component:CandidatesComponent},
+    
         {
             path:'**',component:NotfoundComponent
         }

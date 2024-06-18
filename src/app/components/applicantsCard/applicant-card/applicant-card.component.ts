@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnChanges, ViewChild, AfterViewInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-applicant-card',
   standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './applicant-card.component.html',
+  imports: [CommonModule, FormsModule ,RouterLink],
+ 
+templateUrl: './applicant-card.component.html',
   styleUrls: ['./applicant-card.component.css']
 })
-export class ApplicantCardComponent implements OnChanges, AfterViewInit {
+export class ApplicantCardComponent {
 
   salary: number = 300;
   showCard: boolean = true;
@@ -22,7 +24,7 @@ export class ApplicantCardComponent implements OnChanges, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // You can manipulate the DOM here using this.card.nativeElement
+   
   }
 
   removeCard() {
