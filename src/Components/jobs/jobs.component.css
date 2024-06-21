@@ -1,6 +1,11 @@
 /* thead{
     border: none !important;
 } */
+ .sorted{
+    color: #262626;
+    font-size: medium;
+    font-weight:500;
+ }
 .mainTitle{
 color: #262626;
     font-size: 24px;

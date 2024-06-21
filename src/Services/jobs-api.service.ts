@@ -23,7 +23,9 @@ export class JobsApiService {
    return   this.httpclient.delete<any>(`${environment.baseUrl}/jobs/delete/${id}`)
  }
 
- postJob(){}
+ postJob(job:any):Observable<any>{
+  return   this.httpclient.post<any>(`${environment.baseUrl}/jobs/create`,job)
+ }
 
  updateJob(){}
 
