@@ -1,0 +1,85 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.cardbody{
+    margin-top: 15px;
+    width: 13.375rem;
+    /* height: 20.063rem; */
+    border: 1px solid var(--primary);
+    border-radius: 11px;
+}
+
+.cardImg{
+    
+}
+.salary{
+    color: var(--secondary);
+    
+}
+
+.location{
+    font-size: 0.875rem;
+    width: 6.25rem;
+    height: 1.438rem;
+    border-radius: 0.313rem;
+    background-color:var(--background);
+    text-align: center;
+    color: var(--Paragraph02);
+}
+
+.cardIcons{
+    padding: 5px;
+    margin: 5px;
+}
+
+.skills{
+    height: 3.188rem;
+    width: 11.188rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    margin-inline: auto;
+    justify-content:center;
+    color: var(--Paragraph02);
+    font-size: 12px;
+    flex-wrap: wrap;
+}
+.skill{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+    width:3.563rem ;
+    height: 1rem;
+    background-color:var(--background);
+    border-radius: 6px;
+    margin: 2px;
+}
+.btn{
+    margin: auto;
+    justify-content: center;
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+    background-color: var(--primary);
+    color: #ffff;
+    border-radius: 5px;
+    width: 10.625rem;
+    height: 2.375rem;
+    /* padding: 5px 10px; */
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    transition: 0.3s ;
+}
+.btn:hover{
+    background-color: var(--background);
+    color: var(--primary);
+    border-color: var(--primary);
+}
