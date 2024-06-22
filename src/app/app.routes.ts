@@ -1,3 +1,4 @@
+
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/Home/home/home.component';
 import { AboutUsComponent } from './pages/PostJob/AboutUs/about-us/about-us.component';
@@ -12,8 +13,7 @@ import { SettingComponent } from './pages/Setting/setting/setting.component';
 import { ApplicationsComponent } from './pages/Applications/applications/applications.component';
 import { DashboardComponent } from './pages/Dashboard/dashboard/dashboard.component';
 import { ApplicantsCardGroupComponent } from './components/applicantsCardGroup/applicants-card-group/applicants-card-group.component';
-
-
+import { JobsComponent } from '../Components/jobs/jobs.component';
 
 
 export const routes: Routes = [
@@ -32,6 +32,7 @@ export const routes: Routes = [
       },{
         path:'setting',component:SettingComponent
     },
+                    {path: "jobs", component: JobsComponent}
 ]},
     
     
