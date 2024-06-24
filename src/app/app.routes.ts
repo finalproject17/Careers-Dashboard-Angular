@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/Home/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { AboutUsComponent } from './pages/PostJob/AboutUs/about-us/about-us.component';
 import { PostJobComponent } from './pages/PostJob/post-job/post-job.component';
-import { CompanyapplicantsComponent } from './pages/CompanyApplicants/companyapplicants/companyapplicants.component';
+import { CompanyapplicantsComponent } from './pages/CompanyApplicants/company/companyapplicants.component';
 import { CandidatesComponent } from './pages/Candidates/candidates/candidates.component';
 import { NotfoundComponent } from './pages/NotFound/notfound/notfound.component';
 import { MyProfileComponent } from './pages/MyProfile/my-profile/my-profile.component';
@@ -22,9 +22,9 @@ export const routes: Routes = [
     
     {path:'aboutus',component:AboutUsComponent}
     ,
-    { path: 'companycandidates',component:CompanyapplicantsComponent,
+    { path: 'company/:companyId',component:CompanyapplicantsComponent,
         children:[{path:'dashboard',component:DashboardComponent
-    },{path:'postJob',component:PostJobComponent},{path:'applicantcards',component:ApplicantsCardGroupComponent},
+    },{path:'postJob',component:PostJobComponent},{path:'applicantcards/:jobId',component:ApplicantsCardGroupComponent},
     {path:'editprofile',component:MyProfileComponent} ,
     {path:'savedcandidates',component:SavedCandidatesComponent},
     {

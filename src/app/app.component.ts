@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CompanyapplicantsComponent } from './pages/CompanyApplicants/companyapplicants/companyapplicants.component';
+import { CompanyapplicantsComponent } from './pages/CompanyApplicants/company/companyapplicants.component';
+import { provideHttpClient } from '@angular/common/http';
+
+
+
 
 
 @Component({
