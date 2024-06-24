@@ -3,6 +3,7 @@ import { JobsApiService } from "../../services/jobs-api.service";
 import { CommonModule } from "@angular/common";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+// import { UilEllipsisV } from '@iconscout/react-unicons'
 @Component({
   selector: "app-jobs",
   standalone: true,
