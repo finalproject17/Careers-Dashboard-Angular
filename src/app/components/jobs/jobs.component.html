@@ -1,6 +1,6 @@
 
-<h3 class="mainTitle">My Jobs</h3>
-<div class="parent">
+
+<div class="parent bg-white">
    <div class="selectorOption">
     <span class="sorted">Sorted By:</span>
     <select class="selectOption">
@@ -31,7 +31,8 @@
               <td >
                  <h6 class="jobTitle">{{job.JobTitle}}</h6>
                 
-                
+                <i class="uil uil-home"></i>
+----------------------------------
                 <div class="jobRequirements">
                 <span class="requirement"> 
                     
@@ -50,9 +51,7 @@
                 <div *ngIf="showIcons" class="additional-icons">
                     <i class="fa-regular fa-pen-to-square" style="color: #01a84d;"></i>
                     <i class="fa-regular fa-trash-can" style="color: #e45959;" (click)="deleteJob(job._id)"></i>
-
                   </div>
-
                 </div>
             </td>
             </tr>
