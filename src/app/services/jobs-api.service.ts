@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "../../environments/environment.development";
+import { Jobs } from "../models/jobs/jobs";
 
 @Injectable({
   providedIn: "root",
@@ -18,8 +19,12 @@ export class JobsApiService {
       `${environment.baseUrl}/jobs/getCompany?=${companyName}`
     );
   }
+  getJobById(id: string):Observable<Jobs> {
+    return this.httpclient.get<Jobs>(`${environment.baseUrl}/jobs/get/${id}`);
+  }
 
-  deleteJob(id: string): Observable<any> {
+
+  deleteJob(id: string| null): Observable<any> {
     return this.httpclient.delete<any>(
       `${environment.baseUrl}/jobs/delete/${id}`
     );
@@ -29,5 +34,7 @@ export class JobsApiService {
     return this.httpclient.post<any>(`${environment.baseUrl}/jobs/create`, job);
   }
 
-  updateJob() {}
+  updateJob(id: string ,job:Jobs):Observable <any> {
+    return this.httpclient.patch<any>(`${environment.baseUrl}/jobs/update/${id}`,job);
+  }
 }

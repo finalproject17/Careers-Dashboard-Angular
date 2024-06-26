@@ -1,3 +1,4 @@
+import { UpdateJobComponent } from './components/update-job/update-job.component';
 import { Component, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
 import { ApplicantsComponent } from "./components/applicants/applicants.component";
@@ -19,6 +20,7 @@ import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/companyapp
     PostJobComponent,
     CompanyapplicantsComponent,
     ApplicantsComponent,
+    UpdateJobComponent
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",

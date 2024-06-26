@@ -31,8 +31,8 @@
               <td >
                  <h6 class="jobTitle">{{job.JobTitle}}</h6>
                 
-                <i class="uil uil-home"></i>
-----------------------------------
+  
+
                 <div class="jobRequirements">
                 <span class="requirement"> 
                     
@@ -49,9 +49,9 @@
                 <div class="icons">
                 <i class="fa-solid fa-ellipsis-vertical" style="color: #1a1a1a;"   (click)="toggleIcons()"></i>
                 <div *ngIf="showIcons" class="additional-icons">
-                    <i class="fa-regular fa-pen-to-square" style="color: #01a84d;"></i>
+                    <i class="fa-regular fa-pen-to-square" style="color: #01a84d;" [routerLink]="['/companycandidates/update-job',job._id]" ></i>
                     <i class="fa-regular fa-trash-can" style="color: #e45959;" (click)="deleteJob(job._id)"></i>
-                  </div>
+                </div>
                 </div>
             </td>
             </tr>

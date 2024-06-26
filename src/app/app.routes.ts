@@ -6,13 +6,13 @@ import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/companyapp
 import { CandidatesComponent } from "./pages/Candidates/candidates/candidates.component";
 import { NotfoundComponent } from "./pages/NotFound/notfound/notfound.component";
 import { MyProfileComponent } from "./pages/MyProfile/my-profile/my-profile.component";
-import { MyJobsComponent } from "./pages/MyJobs/my-jobs/my-jobs.component";
 import { SavedCandidatesComponent } from "./pages/SavedCadidates/saved-candidates/saved-candidates.component";
 import { SettingComponent } from "./pages/Setting/setting/setting.component";
 import { ApplicationsComponent } from "./pages/Applications/applications/applications.component";
 import { DashboardComponent } from "./pages/Dashboard/dashboard/dashboard.component";
 import { ApplicantsCardGroupComponent } from "./components/applicantsCardGroup/applicants-card-group/applicants-card-group.component";
 import { JobsComponent } from "./components/jobs/jobs.component";
+import { UpdateJobComponent } from "./components/update-job/update-job.component";
 
 export const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
@@ -30,13 +30,14 @@ export const routes: Routes = [
       { path: "savedcandidates", component: SavedCandidatesComponent },
       {
         path: "myJobs",
-        component: MyJobsComponent,
+        component: JobsComponent
       },
       {
         path: "setting",
         component: SettingComponent,
       },
-      { path: "jobs", component: JobsComponent },
+      { path: 'update-job/:id', component: UpdateJobComponent }
+
     ],
   },
 

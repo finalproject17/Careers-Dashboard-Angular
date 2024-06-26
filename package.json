@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@iconscout/react-unicons": "^2.0.2",
+    "@iconscout/unicons": "^4.0.8",
     "bootstrap": "^5.3.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
