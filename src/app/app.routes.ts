@@ -12,7 +12,10 @@ import { SettingComponent } from './pages/Setting/setting/setting.component';
 import { ApplicationsComponent } from './pages/Applications/applications/applications.component';
 import { DashboardComponent } from './pages/Dashboard/dashboard/dashboard.component';
 import { ApplicantsCardGroupComponent } from './components/applicantsCardGroup/applicants-card-group/applicants-card-group.component';
-
+import { JobsComponent } from "./components/jobs/jobs.component";
+import { RegisterComponent } from './components/register/register.component';
+import { RegisterTwoComponent } from './components/register-two/register-two.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 
 
 
@@ -42,3 +45,45 @@ export const routes: Routes = [
         }
 ];
 
+
+
+
+
+  
+// export const routes: Routes = [
+//   { path: "", pathMatch: "full", redirectTo: "home" },
+//   { path: "home", component: HomeComponent },
+
+//   { path: "aboutus", component: AboutUsComponent },
+//   {
+//     path: "companycandidates",
+//     component: CompanyapplicantsComponent,
+//     children: [
+//       { path: "dashboard", component: DashboardComponent },
+//       { path: "postJob", component: PostJobComponent },
+//       { path: "applicantcards", component: ApplicantsCardGroupComponent },
+//       { path: "editprofile", component: MyProfileComponent },
+//       { path: "savedcandidates", component: SavedCandidatesComponent },
+//       {
+//         path: "myJobs",
+//         component: MyJobsComponent,
+//       },
+//       {
+//         path: "setting",
+//         component: SettingComponent,
+//       },
+//       { path: "jobs", component: JobsComponent },
+//     ],
+//   },
+
+//   { path: "candidates", component: CandidatesComponent },
+
+//   {
+//     path: "**",
+//     component: NotfoundComponent,
+//   },
+//   { path: 'register', component: RegisterComponent },
+//   // { path: '', redirectTo: '/register', pathMatch: 'full' } , 
+//   { path: 'two', component: RegisterTwoComponent },
+//   { path: 'sign', component: SignInComponent }
+// ];

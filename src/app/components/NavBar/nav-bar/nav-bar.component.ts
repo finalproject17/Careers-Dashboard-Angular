@@ -17,7 +17,6 @@ templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent implements OnInit {
-
   company: any = {};
   companyId: string | null = '';
 
