@@ -3,20 +3,22 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CompanyBackService } from '../../services/company-back.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [CommonModule,ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './sign-in.component.html',
-  styleUrl: './sign-in.component.css'
+  styleUrls: ['./sign-in.component.css'] // Corrected property name
 })
-export class SignInComponent implements OnInit{
+export class SignInComponent implements OnInit {
   registerForm: FormGroup = new FormGroup({});
 
   constructor(
     private formBuilder: FormBuilder,
-    private companyBackService: CompanyBackService
+    private companyBackService: CompanyBackService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -26,11 +28,14 @@ export class SignInComponent implements OnInit{
     });
   }
 
+  navigateToSignIn() {
+    this.router.navigate(['/pass']);
+  }
+
   onSubmit() {
     if (this.registerForm.valid) {
       const { companyEmail, companyPassword } = this.registerForm.value;
-      console.log(  { companyEmail, companyPassword });
-      
+      console.log({ companyEmail, companyPassword });
 
       this.companyBackService.login(companyEmail, companyPassword).subscribe({
         next: (response) => {
@@ -63,5 +68,4 @@ export class SignInComponent implements OnInit{
       });
     }
   }
-
 }
