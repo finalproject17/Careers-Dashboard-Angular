@@ -7,7 +7,7 @@ import { CommonModule, NgFor } from "@angular/common";
 import { JobsComponent } from "./components/jobs/jobs.component";
 import { PostJobComponent } from "./components/post-job/post-job.component";
 import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/companyapplicants/companyapplicants.component";
-
+import {FormsModule} from '@angular/forms';
 // import { BrowserModule } from '@angular/platform-browser';
 @Component({
   selector: "app-root",
@@ -20,7 +20,8 @@ import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/companyapp
     PostJobComponent,
     CompanyapplicantsComponent,
     ApplicantsComponent,
-    UpdateJobComponent
+    UpdateJobComponent,
+    FormsModule
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",

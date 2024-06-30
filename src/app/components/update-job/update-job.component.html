@@ -1,10 +1,13 @@
 <h5 class="mainTitle">Update Job</h5>
 <div class="parent bg-white">
     <h6 class="subTitle">Job Details</h6>
-    <form>
+    <form  >
 
-        <label for="jobTitle ">Job Title</label>
+        <label for="jobTitle">Job Title</label>
         <input type="text" id="jobTitle" formControlName="JobTitle" required>
+
+        <label for="example-ngModel">{{test}}</label>
+        <input [(ngModel)]="test" id="example-ngModel">
 
         <div class="form-group">
             <label for="jobCategory">Job Category</label>
@@ -16,11 +19,11 @@
         </div>
 
         <label for="jobSubCategory">Job SubCategory</label>
-        <input type="text" id="jobSubCategory" formControlName="JobSubCategory" >
+        <input type="text" id="jobSubCategory" formControlName="JobSubCategory">
 
         <label for="description">Description</label>
         <textarea id="description" formControlName="description" required minlength="50" maxlength="1000"
-            rows="5" [(ngModel)]="Job?.description"></textarea>
+            rows="5"></textarea>
 
         <label for="jobType">Job Type</label>
         <select id="jobType" formControlName="JobType">
@@ -29,6 +32,7 @@
             <option value="Internship">Internship</option>
             <option value="Contract">Contract</option>
         </select>
+
         <div formGroupName="salary">
             <label for="salaryFrom">Salary From</label>
             <input type="number" id="salaryFrom" formControlName="from">
@@ -38,9 +42,7 @@
         </div>
 
         <label for="skills">Skills</label>
-        <input type="text"  />
-
-
+        <input type="text" formControlName="Skills">
 
         <div formGroupName="JobHours">
             <label for="jobHoursFrom">Job Hours From</label>
@@ -56,7 +58,6 @@
 
             <label for="government">Government</label>
             <input type="text" id="government" formControlName="government" required>
-
         </div>
 
         <label for="jobLocationType">Job Location Type</label>
@@ -74,12 +75,11 @@
         </select>
 
         <label for="jobRequirements">Job Requirements</label>
-
         <mat-select formControlName="jobRequirements" multiple>
-            <mat-option *ngFor="let requirement of requirementsList" [value]="requirement">{{ requirement
-                }}</mat-option>
+            <mat-option *ngFor="let requirement of requirementsList" [value]="requirement">
+                {{ requirement }}
+            </mat-option>
         </mat-select>
-
 
         <label for="status">Status</label>
         <select id="status" formControlName="status">
@@ -89,7 +89,7 @@
 
         <input type="hidden" formControlName="companyId">
 
-        <button class="addQuestion">Add Question</button>
+        <button class="addQuestion" type="button">Add Question</button>
         <div class="btns">
             <button type="submit" class="postJob">Update Job</button>
         </div>
