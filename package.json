@@ -26,7 +26,10 @@
     "@iconscout/react-unicons": "^2.0.2",
     "@iconscout/unicons": "^4.0.8",
     "bootstrap": "^5.3.3",
+    "ngx-pagination": "^6.0.3",
+    "ngx-cookie-service": "^18.0.0",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.12.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },
