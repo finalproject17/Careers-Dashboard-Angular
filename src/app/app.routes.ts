@@ -52,7 +52,7 @@ export const routes: Routes = [
     ],
   },
   { path: "candidates", component: CandidatesComponent },
-  { path: "register", component: RegisterComponent },
+  { path: "Register", component: RegisterComponent },
   { path: "two", component: RegisterTwoComponent },
   { path: "sign", component: SignInComponent },
   { path: "pass", component: PasswordComponent },
