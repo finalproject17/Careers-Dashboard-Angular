@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CompanyBackService } from '../../services/company-back.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-in',
@@ -16,7 +17,8 @@ export class SignInComponent implements OnInit{
 
   constructor(
     private formBuilder: FormBuilder,
-    private companyBackService: CompanyBackService
+    private companyBackService: CompanyBackService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -26,11 +28,14 @@ export class SignInComponent implements OnInit{
     });
   }
 
+  navigateToSignIn() {
+    this.router.navigate(['/pass']);
+  }
+
   onSubmit() {
     if (this.registerForm.valid) {
       const { companyEmail, companyPassword } = this.registerForm.value;
-      console.log(  { companyEmail, companyPassword });
-      
+      console.log({ companyEmail, companyPassword });
 
       this.companyBackService.login(companyEmail, companyPassword).subscribe({
         next: (response) => {
@@ -41,7 +46,7 @@ export class SignInComponent implements OnInit{
               icon: 'success',
               confirmButtonText: 'OK'
             }).then(() => {
-              this.companyBackService.setTokenInCookie(response.token);
+              this.router.navigate(['/dashboard']); 
             });
           }
         },
@@ -63,5 +68,4 @@ export class SignInComponent implements OnInit{
       });
     }
   }
-
 }

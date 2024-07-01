@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutUsComponent } from './pages/PostJob/AboutUs/about-us/about-us.component';
-import { PostJobComponent } from './pages/PostJob/post-job/post-job.component';
+import { PostJobComponent } from './components/post-job/post-job.component';
 import { CompanyapplicantsComponent } from './pages/CompanyApplicants/company/companyapplicants.component';
 import { CandidatesComponent } from './pages/Candidates/candidates/candidates.component';
 import { NotfoundComponent } from './pages/NotFound/notfound/notfound.component';
@@ -16,18 +16,21 @@ import { JobsComponent } from "./components/jobs/jobs.component";
 import { RegisterComponent } from './components/register/register.component';
 import { RegisterTwoComponent } from './components/register-two/register-two.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { AdditionalQuestionsComponent } from './components/additional-questions/additional-questions.component';
 
 
 
 export const routes: Routes = [
     {path:'',pathMatch:'full',redirectTo:'home'},
     {path:'home',component:HomeComponent},
-    
+    {path:'addJob',component:PostJobComponent},
     {path:'aboutus',component:AboutUsComponent}
-    ,
+    , { path: 'sign', component: SignInComponent },
+    {path:'AdditionalQuestions/:id', component:AdditionalQuestionsComponent},
+    {path:'theJobs', component:JobsComponent},
     { path: 'company/:companyId',component:CompanyapplicantsComponent,
         children:[{path:'dashboard',component:DashboardComponent
-    },{path:'postJob',component:PostJobComponent},{path:'applicantcards/:jobId',component:ApplicantsCardGroupComponent},
+    },{path:'applicantcards/:jobId',component:ApplicantsCardGroupComponent},
     {path:'editprofile',component:MyProfileComponent} ,
     {path:'savedcandidates',component:SavedCandidatesComponent},
     {
@@ -85,5 +88,5 @@ export const routes: Routes = [
 //   { path: 'register', component: RegisterComponent },
 //   // { path: '', redirectTo: '/register', pathMatch: 'full' } , 
 //   { path: 'two', component: RegisterTwoComponent },
-//   { path: 'sign', component: SignInComponent }
+ 
 // ];

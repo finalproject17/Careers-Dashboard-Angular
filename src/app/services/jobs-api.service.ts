@@ -12,13 +12,11 @@ export class JobsApiService {
   getAllJobs(): Observable<any> {
     return this.httpclient.get<any>(`${environment.baseUrl}/jobs/get`);
   }
+   getJobsByCompanyId(id:string): Observable<any>{
+    return this.httpclient.get<any>(`${environment.baseUrl}/jobs/getJobsByCompanyId/${id}`)
 
-  getJobsByCompanyName(companyName: string): Observable<any> {
-    return this.httpclient.get<any>(
-      `${environment.baseUrl}/jobs/getCompany?=${companyName}`
-    );
-  }
-
+   }
+ 
   deleteJob(id: string): Observable<any> {
     return this.httpclient.delete<any>(
       `${environment.baseUrl}/jobs/delete/${id}`
@@ -28,6 +26,17 @@ export class JobsApiService {
   postJob(job: any): Observable<any> {
     return this.httpclient.post<any>(`${environment.baseUrl}/jobs/create`, job);
   }
+ // getJobsByCompanyName(companyName: string): Observable<any> {
+  //   return this.httpclient.get<any>(
+  //     `${environment.baseUrl}/jobs/getCompany?=${companyName}`
+  //   );
+  // }
+
+  // getJobsByCompanyName(companyName: string): Observable<any> {
+  //   return this.httpclient.get<any>(
+  //     `${environment.baseUrl}/jobs/getCompany/${companyName}`
+  //   );
+  // }
 
   updateJob() {}
 }

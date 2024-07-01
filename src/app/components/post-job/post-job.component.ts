@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import {
   FormBuilder,
   FormControl,
@@ -10,16 +10,19 @@ import { MatSelectModule } from "@angular/material/select";
 import { CommonModule } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
-
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { SuccessDialogComponent } from "../success-dialog/success-dialog.component";
+import { Router } from "@angular/router";
 @Component({
   selector: "app-post-job",
   standalone: true,
-  imports: [CommonModule, MatSelectModule, ReactiveFormsModule],
+  imports: [CommonModule, MatSelectModule, ReactiveFormsModule,MatDialogModule],
   templateUrl: "./post-job.component.html",
   styleUrls: ["./post-job.component.css"],
 })
-export class PostJobComponent {
-  jobForm: FormGroup;
+export class PostJobComponent implements OnInit {
+  company:any ={}
+  jobForm!: FormGroup;
   skillsList: string[] = [
     "JavaScript",
     "HTML",
@@ -38,16 +41,29 @@ export class PostJobComponent {
     "Good communication skills",
   ];
 
-  constructor(private fb: FormBuilder, private hhtpClient: HttpClient) {
+  constructor(private fb: FormBuilder, private hhtpClient: HttpClient, public dialog: MatDialog, private router:Router) {
+   
+  }
+
+   ngOnInit(): void {
+    const companyInfo= localStorage.getItem('companyInfo');
+    // console.log(companyInfo)
+    if (companyInfo) {
+     this.company = JSON.parse(companyInfo);
+     console.log(this.company);
+    }
+
+    //  initialize the jobForm
     this.jobForm = this.fb.group({
-      companyName: new FormControl("Envato.", [Validators.required]),
+      companyName: new FormControl(this.company.companyName
+        , [Validators.required]),
       JobTitle: new FormControl("", [
         Validators.required,
         Validators.maxLength(100),
         Validators.minLength(3),
       ]),
       JobCategory: new FormControl([], [Validators.required]),
-      JobSubCategory: new FormControl(["other"]),
+      JobSubCategory: new FormControl(["other"],[Validators.required]),
       description: new FormControl("", [
         Validators.required,
         Validators.minLength(50),
@@ -55,13 +71,14 @@ export class PostJobComponent {
       ]),
       JobType: new FormControl("Part-Time", [Validators.required]),
       salary: new FormGroup({
-        from: new FormControl(""),
-        to: new FormControl(""),
+        from: new FormControl("",[Validators.required]),
+        to: new FormControl("",[Validators.required]),
+        
       }),
-      skills: new FormControl([]),
+      skills: new FormControl([],[Validators.required]),
       JobHours: new FormGroup({
-        from: new FormControl(""),
-        to: new FormControl(""),
+        from: new FormControl("",[Validators.required]),
+        to: new FormControl("",[Validators.required]),
       }),
 
       jobLocation: this.fb.group({
@@ -70,15 +87,16 @@ export class PostJobComponent {
       }),
       JoblocationType: new FormControl("", [Validators.required]),
       jobLevel: new FormControl("", [Validators.required]),
-      jobRequirements: new FormControl([]),
+      jobRequirements: new FormControl([], [Validators.required]),
       status: new FormControl("Open", [Validators.required]),
 
-      companyId: new FormControl("6664032cff0e9fda232e5cc4", [
+      companyId: new FormControl(this.company.id, [
         Validators.required,
       ]),
     });
-  }
 
+   }
+   
   addJob() {
     const jobData = {
       ...this.jobForm.value,
@@ -88,8 +106,9 @@ export class PostJobComponent {
       .post<any>(`${environment.baseUrl}/jobs/create`, jobData)
       .subscribe({
         next: (response) => {
-          console.log("Job added successfully:", response);
-          alert("Job added successfully");
+          console.log("Job added successfully:", response.newJob);
+          // alert("Job added successfully");
+          this.openSuccessDialog(response.newJob._id);
         },
         error: (error) => {
           console.error("Error adding job:", error);
@@ -98,4 +117,18 @@ export class PostJobComponent {
 
     return false;
   }
+
+  openSuccessDialog(jobId: string): void {
+    const dialogRef = this.dialog.open(SuccessDialogComponent, {
+      data: { jobId }, // Pass job ID to dialog
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'addQuestions') {
+        console.log('User chose to add additional questions.');
+        this.router.navigate(['/AdditionalQuestions', jobId]); // Navigate to additional questions with job ID
+      }
+    });
+  }
+ 
 }

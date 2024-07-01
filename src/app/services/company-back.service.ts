@@ -1,7 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import Swal from 'sweetalert2';
 import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
@@ -9,33 +11,72 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class CompanyBackService {
 
-  constructor(private httpClient: HttpClient,
-    private cookieService: CookieService
-  ) { }
-
+  constructor(private httpClient: HttpClient, private cookieService: CookieService) { }
 
   signup(formData: any): Observable<any> {
     return this.httpClient.post(`${environment.baseUrl}/companies/signup`, formData);
   }
-  // login(email: string, password: string): Observable<any> {
-  //   return this.httpClient.post<any>(`${environment.baseUrl}/login`, { email, password });
-  // }
-  login(companyEmail: string, companyPassword: string) {
-    return this.httpClient.post<any>(`${environment.baseUrl}/companies/login`, { companyEmail, companyPassword }, {
+
+  login(companyEmail: string, companyPassword: string): Observable<any> {
+    return this.httpClient.post<any>(`${environment.baseUrl}/companies/login`, { companyEmail, companyPassword })
+      .pipe(
+        tap(response => {
+          if (response.token && response.company) {
+            localStorage.setItem('authToken', response.token);
+            localStorage.setItem('companyInfo', JSON.stringify(response.company));
+          }
+        })
+      );
+  }
+
+  sendMail(companyEmail: string): Observable<any> {
+    return this.httpClient.post(`${environment.baseUrl}/companies/sendMail`, { companyEmail }, {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.cookieService.get('token')}`
+        'Content-Type': 'application/json'
       })
     });
   }
 
-  setTokenInCookie(token: string) {
-    this.cookieService.set('token', token);
+  resetPassword(token: string, newPassword: string, confirmPassword: string): Observable<any> {
+    const url = `${environment.baseUrl}/companies/resetPassword?token=${token}`;
+    return this.httpClient.post(url, { newPassword, confirmPassword }, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    }).pipe(
+      catchError((error) => this.handleError(error))
+    );
   }
-
-  removeTokenFromCookie() {
-    this.cookieService.delete('token');
-  }
-
   
+  private handleError(error: any): Observable<never> {
+    console.error('API Error:', error);
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: `An error occurred: ${error.message}`,
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK'
+    });
+    return throwError(error);
+  }
+  
+
+  logout() {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('companyInfo');
+  }
+
+  getToken(): string | null {
+    return localStorage.getItem('authToken');
+  }
+
+  getCompanyInfo(): any {
+    const companyInfo = localStorage.getItem('companyInfo');
+    return companyInfo ? JSON.parse(companyInfo) : null;
+  }
+
+  isLoggedIn(): boolean {
+    return this.getToken() !== null;
+  }
 }
+
