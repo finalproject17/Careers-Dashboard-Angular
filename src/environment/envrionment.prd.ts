@@ -1,3 +1,4 @@
 export const environment = {
-   baseURL:'http://localhost:3001'
+baseURL : "https://deploying-backend-taupe.vercel.app"
+    // baseURL:'http://localhost:3001'
   };

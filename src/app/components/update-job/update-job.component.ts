@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { JobsApiService } from '../../services/jobs-api.service';
 import { ActivatedRoute } from '@angular/router';
-import { Jobs } from '../../models/jobs/jobs';
+
 import { CommonModule } from '@angular/common';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { Jobs } from '../../models/jobs';
 
 @Component({
   selector: 'app-update-job',
@@ -15,10 +16,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./update-job.component.css']
 })
 export class UpdateJobComponent implements OnInit {
-  jobId: string | null = null;
+  jobId: string | null = '667ed545c7344cc792f543b2';
   Job: Jobs | null = null;
-
-  test = '215555555555';
   requirementsList: string[] = [
     "Bachelor's Degree",
     "2+ years experience",

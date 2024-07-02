@@ -6,7 +6,6 @@ import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/company/co
 import { CandidatesComponent } from "./pages/Candidates/candidates/candidates.component";
 import { NotfoundComponent } from "./pages/NotFound/notfound/notfound.component";
 import { MyProfileComponent } from "./pages/MyProfile/my-profile/my-profile.component";
-// import { MyJobsComponent } from "./pages/MyJobs/my-jobs/my-jobs.component";
 import { SavedCandidatesComponent } from "./pages/SavedCadidates/saved-candidates/saved-candidates.component";
 import { SettingComponent } from "./pages/Setting/setting/setting.component";
 import { ApplicationsComponent } from "./pages/Applications/applications/applications.component";
@@ -37,10 +36,10 @@ export const routes: Routes = [
       },
       { path: "editprofile", component: MyProfileComponent },
       { path: "savedcandidates", component: SavedCandidatesComponent },
-      // {
-      //   path: "myJobs",
-      //   component: MyJobsComponent,
-      // },
+      {
+        path: "myJobs",
+        component: JobsComponent,
+      },
       { path: 'update-job/:id', component: UpdateJobComponent },
       {
         path: "setting",

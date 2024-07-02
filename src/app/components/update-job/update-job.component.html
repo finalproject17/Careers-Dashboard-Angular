@@ -1,17 +1,14 @@
 <h5 class="mainTitle">Update Job</h5>
 <div class="parent bg-white">
     <h6 class="subTitle">Job Details</h6>
-    <form  >
+    <form>
 
         <label for="jobTitle">Job Title</label>
-        <input type="text" id="jobTitle" formControlName="JobTitle" required>
+        <input type="text" id="jobTitle" required>
 
-        <label for="example-ngModel">{{test}}</label>
-        <input [(ngModel)]="test" id="example-ngModel">
-
-        <div class="form-group">
-            <label for="jobCategory">Job Category</label>
-            <select id="jobCategory" formControlName="JobCategory">
+        <div class="form-group" >
+            <label for="jobCategory" >Job Category</label>
+            <select id="jobCategory" >
                 <option value="development">Development</option>
                 <option value="design">Design</option>
                 <option value="marketing">Marketing</option>
@@ -19,14 +16,13 @@
         </div>
 
         <label for="jobSubCategory">Job SubCategory</label>
-        <input type="text" id="jobSubCategory" formControlName="JobSubCategory">
+        <input type="text" id="jobSubCategory">
 
         <label for="description">Description</label>
-        <textarea id="description" formControlName="description" required minlength="50" maxlength="1000"
-            rows="5"></textarea>
+        <textarea id="description" required minlength="50" maxlength="1000" rows="5"></textarea>
 
         <label for="jobType">Job Type</label>
-        <select id="jobType" formControlName="JobType">
+        <select id="jobType">
             <option value="Full-Time">Full-Time</option>
             <option value="Part-Time">Part-Time</option>
             <option value="Internship">Internship</option>
@@ -35,59 +31,58 @@
 
         <div formGroupName="salary">
             <label for="salaryFrom">Salary From</label>
-            <input type="number" id="salaryFrom" formControlName="from">
-
+            <input type="number" id="salaryFrom">
             <label for="salaryTo">Salary To</label>
-            <input type="number" id="salaryTo" formControlName="to">
+            <input type="number" id="salaryTo">
         </div>
 
         <label for="skills">Skills</label>
-        <input type="text" formControlName="Skills">
+        <input type="text" id="skills">
 
-        <div formGroupName="JobHours">
+        <div>
             <label for="jobHoursFrom">Job Hours From</label>
-            <input type="number" id="jobHoursFrom" formControlName="from" min="1" max="24">
+            <input type="number" id="jobHoursFrom" min="1" max="24">
 
             <label for="jobHoursTo">Job Hours To</label>
-            <input type="number" id="jobHoursTo" formControlName="to" min="1" max="24">
+            <input type="number" id="jobHoursTo" min="1" max="24">
         </div>
 
         <div formGroupName="jobLocation">
             <label for="state">State</label>
-            <input type="text" id="state" formControlName="State" required>
+            <input type="text" id="state" required>
 
             <label for="government">Government</label>
-            <input type="text" id="government" formControlName="government" required>
+            <input type="text" id="government" required>
         </div>
 
         <label for="jobLocationType">Job Location Type</label>
-        <select id="jobLocationType" formControlName="JoblocationType">
+        <select id="jobLocationType">
             <option value="Onsite">Onsite</option>
             <option value="Remote">Remote</option>
             <option value="Hybrid">Hybrid</option>
         </select>
 
         <label for="jobLevel">Job Level</label>
-        <select id="jobLevel" formControlName="jobLevel">
+        <select id="jobLevel">
             <option value="EntryLevel">EntryLevel</option>
             <option value="MidLevel">MidLevel</option>
             <option value="Senior">Senior</option>
         </select>
 
         <label for="jobRequirements">Job Requirements</label>
-        <mat-select formControlName="jobRequirements" multiple>
+        <mat-select id="jobRequirements" multiple>
             <mat-option *ngFor="let requirement of requirementsList" [value]="requirement">
                 {{ requirement }}
             </mat-option>
         </mat-select>
 
         <label for="status">Status</label>
-        <select id="status" formControlName="status">
+        <select id="status">
             <option value="Open">Open</option>
             <option value="Closed">Closed</option>
         </select>
 
-        <input type="hidden" formControlName="companyId">
+        <input type="hidden">
 
         <button class="addQuestion" type="button">Add Question</button>
         <div class="btns">

@@ -3,7 +3,7 @@ import { JobsApiService } from "../../services/jobs-api.service";
 import { CommonModule } from "@angular/common";
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
-import { Jobs } from "../../models/jobs/jobs";
+import { Jobs } from '../../models/jobs';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 // import { UilEllipsisV } from '@iconscout/react-unicons'
 @Component({
