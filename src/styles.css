@@ -1,3 +1,9 @@
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 :root {
   --primary: #275C45;
   --secondary: #01A84D;
@@ -27,26 +33,26 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: 'Roboto', sans-serif !important;
-
 }
 
 
 
 
 h5{
-
 font-size: 24px;
 font-weight: bold;
-
-
 }
 
 .form-check-input:checked{
-    background-color: #275C45 !important;
-  border-color: #B4E0D3 !important;
+    background-color: var(--primary) !important;
+  border-color: var(--border02) !important;
 
 
 }
+.text-green{
+  color: var(--Third);
+}
+
 .form-control:focus {
 border-color: var(--Third) !important;
 box-shadow: 0 0 0 0.1rem #19875424 !important;
@@ -54,3 +60,8 @@ box-shadow: 0 0 0 0.1rem #19875424 !important;
 
 
 
+
+.fa-classic, .fa-regular, .fa-solid{
+  font-family: "Font Awesome 6 Free" !important;
+
+}

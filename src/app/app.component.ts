@@ -1,19 +1,50 @@
+
+
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { RegisterComponent } from './components/register/register.component';
+import { RegisterTwoComponent } from './components/register-two/register-two.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { ApplicantsComponent } from "./components/applicants/applicants.component";
+// import { JobsApiService } from '../Services/jobs-api.service';
+import { JobsComponent } from "./components/jobs/jobs.component";
+import { PostJobComponent } from "./components/post-job/post-job.component";
+// import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/companyapplicants/companyapplicants.component";
 import { CompanyapplicantsComponent } from './pages/CompanyApplicants/company/companyapplicants.component';
-import { provideHttpClient } from '@angular/common/http';
-
-
-
+// import { BrowserModule } from '@angular/platform-browser';
+import {NavBarComponent } from './components/NavBar/nav-bar/nav-bar.component'
+import { PasswordComponent } from './components/password/password.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   standalone: true,
-  imports: [RouterOutlet,CompanyapplicantsComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    JobsComponent,
+    NavBarComponent,
+    PostJobComponent,
+    CompanyapplicantsComponent,
+    ApplicantsComponent,
+    RegisterComponent,
+    RegisterTwoComponent,
+    ReactiveFormsModule,
+    SignInComponent,
+    CompanyapplicantsComponent,
+    PasswordComponent,
+    ResetPasswordComponent,
+    HttpClientModule,
+
+  ],
+  templateUrl: "./app.component.html",
+  styleUrl: "./app.component.css",
 })
 export class AppComponent {
-  title = 'Careers-Angular-Dashboard';
+  title = "Careers-Angular-Dashboard";
 }

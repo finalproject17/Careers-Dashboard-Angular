@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 // import { Jobs } from '../models/jobs';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { environment } from '../../environment/envrionment.prd';
+import { environment } from '../../environments/environment.development';
 
 
 
@@ -11,7 +11,7 @@ import { environment } from '../../environment/envrionment.prd';
 })
 
 export class JobServiceService {
-  private apiUrl = environment.baseURL;
+  private apiUrl = environment.baseUrl;
 
   constructor(private _httpclient: HttpClient) {}
 

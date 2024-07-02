@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '../../environment/envrionment.prd';
+import { environment } from '../../environments/environment.development';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,6 +11,6 @@ export class CompanyserviceService {
   constructor(private _httpClient: HttpClient) {}
 
   getCompanyDetails(id: string | null): Observable<any> {
-    return this._httpClient.get<any>(`${environment.baseURL}/companies/${id}`);
+    return this._httpClient.get<any>(`${environment.baseUrl}/companies/${id}`);
   }
 }
