@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostJobComponent } from './post-job.component';
+import { SuccessDialogComponent } from './success-dialog.component';
 
-describe('PostJobComponent', () => {
-  let component: PostJobComponent;
-  let fixture: ComponentFixture<PostJobComponent>;
+describe('SuccessDialogComponent', () => {
+  let component: SuccessDialogComponent;
+  let fixture: ComponentFixture<SuccessDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PostJobComponent]
+      imports: [SuccessDialogComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PostJobComponent);
+    fixture = TestBed.createComponent(SuccessDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

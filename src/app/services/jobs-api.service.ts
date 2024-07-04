@@ -9,33 +9,48 @@ import { Jobs } from "../models/jobs";
   providedIn: "root",
 })
 export class JobsApiService {
-  constructor(private httpclient: HttpClient) {}
+  constructor(private httpclient: HttpClient) { }
 
   getAllJobs(): Observable<any> {
-    return this.httpclient.get<any>(`${environment.baseUrl}/jobs/get`);
+    return this.httpclient.get<any>(`${environment.baseUrl}jobs/get`);
+  }
+  getJobsByCompanyId(id: string): Observable<any> {
+    return this.httpclient.get<any>(`${environment.baseUrl}/jobs/getJobsByCompanyId/${id}`)
   }
 
-  getJobsByCompanyName(companyName: string): Observable<any> {
-    return this.httpclient.get<any>(
-      `${environment.baseUrl}/jobs/getCompany?=${companyName}`
-    );
-  }
-  getJobById(id: string):Observable<Jobs> {
-    return this.httpclient.get<Jobs>(`${environment.baseUrl}/jobs/get/${id}`);
-  }
+    getJobsByCompanyName(companyName: string): Observable < any > {
+      return this.httpclient.get<any>(
+        `${environment.baseUrl}/jobs/getCompany?=${companyName}`
+      );
+    }
+    getJobById(id: string): Observable < Jobs > {
+      return this.httpclient.get<Jobs>(`${environment.baseUrl}/jobs/get/${id}`);
+      // return this.httpclient.get<Jobs>(`${environment.baseUrl}/jobs/dona/${id}`);
+    }
 
 
-  deleteJob(id: string| null): Observable<any> {
-    return this.httpclient.delete<any>(
-      `${environment.baseUrl}/jobs/delete/${id}`
-    );
-  }
+    deleteJob(id: string | null): Observable < any > {
+      return this.httpclient.delete<any>(
+        `${environment.baseUrl}/jobs/delete/${id}`
+      );
+    }
 
-  postJob(job: any): Observable<any> {
-    return this.httpclient.post<any>(`${environment.baseUrl}/jobs/create`, job);
-  }
+    postJob(job: any): Observable < any > {
+      return this.httpclient.post<any>(`${environment.baseUrl}/jobs/create`, job);
+    }
+    // getJobsByCompanyName(companyName: string): Observable<any> {
+    //   return this.httpclient.get<any>(
+    //     `${environment.baseUrl}/jobs/getCompany?=${companyName}`
+    //   );
+    // }
 
-  updateJob(id: string ,job:Jobs):Observable <any> {
-    return this.httpclient.patch<any>(`${environment.baseUrl}/jobs/update/${id}`,job);
+    // getJobsByCompanyName(companyName: string): Observable<any> {
+    //   return this.httpclient.get<any>(
+    //     `${environment.baseUrl}/jobs/getCompany/${companyName}`
+    //   );
+    // }
+
+    updateJob(id: string, job: Jobs): Observable < any > {
+      return this.httpclient.patch<any>(`${environment.baseUrl}/jobs/update/${id}`, job);
+    }
   }
-}

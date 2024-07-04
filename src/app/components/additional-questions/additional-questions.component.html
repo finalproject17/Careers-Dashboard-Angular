@@ -1,0 +1,48 @@
+
+<div class="parent">
+    <!-- <h2>{{ jobId }}</h2> -->
+    <form [formGroup]="additionalQuestionsForm" (ngSubmit)="onSubmit()">
+      <!-- <h6>{{additionalQuestionsForm.value | json}}</h6> -->
+        <input type="hidden" formControlName="jobId">
+
+      <label for="FirstQuestion">Question 1</label>
+      <input type="text" id="FirstQuestion" formControlName="FirstQuestion">
+        @if(additionalQuestionsForm.get('FirstQuestion')?.touched){
+      <div class="text-danger">
+          @if(additionalQuestionsForm.get('FirstQuestion')?.errors?.['required']){
+             <p>  Question 1 is required</p>
+          }
+         
+        </div>
+      }
+      <label for="SecondQuestion">Question 2</label>
+      <input type="text" id="SecondQuestion" formControlName="SecondQuestion">
+      @if(additionalQuestionsForm.get('SecondQuestion')?.touched){
+        <div class="text-danger">
+            @if(additionalQuestionsForm.get('SecondQuestion')?.errors?.['required']){
+               <p>  Question 2 is required</p>
+            }
+           
+          </div>}
+      <label for="ThirdQuestion">Question 3</label>
+      <input type="text" id="ThirdQuestion" formControlName="ThirdQuestion">
+      @if(additionalQuestionsForm.get('ThirdQuestion')?.touched){
+        <div class="text-danger">
+            @if(additionalQuestionsForm.get('ThirdQuestion')?.errors?.['required']){
+               <p>  Question 3 is required</p>
+            }
+           
+          </div>}
+      <label for="FourthQuestion">Question 4</label>
+      <input type="text" id="FourthQuestion" formControlName="FourthQuestion">
+      @if(additionalQuestionsForm.get('FourthQuestion')?.touched){
+        <div class="text-danger">
+            @if(additionalQuestionsForm.get('FourthQuestion')?.errors?.['required']){
+               <p>  Question 4 is required</p>
+            }
+           
+          </div>}
+      <button type="submit" class="addQuestion" [disabled]="!additionalQuestionsForm.valid">Add Question</button>
+    </form>
+  </div>
+  

@@ -11,44 +11,78 @@ import { Jobs } from '../../models/jobs';
 @Component({
   selector: 'app-update-job',
   standalone: true,
-  imports: [CommonModule, MatSelectModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, MatSelectModule, FormsModule , ReactiveFormsModule],
   templateUrl: './update-job.component.html',
   styleUrls: ['./update-job.component.css']
 })
 export class UpdateJobComponent implements OnInit {
-  jobId: string | null = '667ed545c7344cc792f543b2';
-  Job: Jobs | null = null;
-  requirementsList: string[] = [
-    "Bachelor's Degree",
-    "2+ years experience",
-    "Team player",
-    "Good communication skills",
-  ];
+  jobId: string | any = ' ';
+  job: Jobs  = {} as Jobs;
+   newSkill: string = '';
+  newRequirement: string = '';
+  isUpdated: boolean = false;
 
   constructor(
     private _jobsApiService: JobsApiService,
     private _activatedRoute: ActivatedRoute,
     private fb: FormBuilder
-  ){}
-
+  ) {}
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params) => {
+      console.log("params",params);
+      
       this.jobId = params.get("id");
+      console.log(this.jobId);
+      
       if (this.jobId) {
         this._jobsApiService.getJobById(this.jobId).subscribe({
           next: (res) => {
-            this.Job = res;
-     
+            this.job = res;
+            console.log('flaage',this.job);
           },
           error: (err) => {
             console.log(err, "job not found");
           }
         });
       }
-    })
+    });
   }
 
 
 
+ updateJob(formValue: any) {
+   console.log('Updated Job Details:', formValue);
+   this._jobsApiService.updateJob(this.jobId, this.job).subscribe({
+     next: (res) => {
+       console.log('job update success', res);
+       formValue = {};
+       this.isUpdated = true;
+          },
+          error: (err) => {
+            console.log(err, "job not found");
+          }
+   })
+  }
+
+  addSkill() {
+    if (this.newSkill && !this.job.skills.includes(this.newSkill)) {
+      this.job.skills.push(this.newSkill);
+      this.newSkill = '';
+    }
+    console.log(this.newSkill,this.job.skills);
+  }
+
+  removeSkill(skill: string) {
+    this.job.skills = this.job.skills.filter((s: string) => s !== skill);
+  }
+ addRequirement() {
+    if (this.newRequirement && !this.job.jobRequirements.includes(this.newRequirement)) {
+      this.job.jobRequirements.push(this.newRequirement);
+      this.newRequirement = '';
+    }
+  }
+  removeRequirement(requirement: string) {
+    this.job.jobRequirements = this.job.jobRequirements.filter((r: string) => r !== requirement);
+  }
 }

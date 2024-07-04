@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment.development';
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import Swal from 'sweetalert2';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -18,12 +18,15 @@ export class CompanyBackService {
   }
 
   login(companyEmail: string, companyPassword: string): Observable<any> {
-    return this.httpClient.post<any>(`${environment.baseUrl}/companies/login`, { companyEmail, companyPassword }, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.cookieService.get('token')}`
-      })
-    });
+    return this.httpClient.post<any>(`${environment.baseUrl}/companies/login`, { companyEmail, companyPassword })
+      .pipe(
+        tap(response => {
+          if (response.token && response.company) {
+            localStorage.setItem('authToken', response.token);
+            localStorage.setItem('companyInfo', JSON.stringify(response.company));
+          }
+        })
+      );
   }
 
   sendMail(companyEmail: string): Observable<any> {
@@ -58,11 +61,22 @@ export class CompanyBackService {
   }
   
 
-  setTokenInCookie(token: string) {
-    this.cookieService.set('token', token);
+  logout() {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('companyInfo');
   }
 
-  removeTokenFromCookie() {
-    this.cookieService.delete('token');
+  getToken(): string | null {
+    return localStorage.getItem('authToken');
+  }
+
+  getCompanyInfo(): any {
+    const companyInfo = localStorage.getItem('companyInfo');
+    return companyInfo ? JSON.parse(companyInfo) : null;
+  }
+
+  isLoggedIn(): boolean {
+    return this.getToken() !== null;
   }
 }
+

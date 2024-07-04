@@ -46,7 +46,7 @@ export class SignInComponent implements OnInit {
               icon: 'success',
               confirmButtonText: 'OK'
             }).then(() => {
-              this.companyBackService.setTokenInCookie(response.token);
+              this.router.navigate(['/dashboard']); 
             });
           }
         },
