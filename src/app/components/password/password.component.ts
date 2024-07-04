@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CompanyBackService } from '../../services/company-back.service'; 
 
+
+
 @Component({
   selector: 'app-password',
   standalone: true,
