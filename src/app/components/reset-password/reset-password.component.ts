@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyBackService } from '../../services/company-back.service'; 
+
+
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 
