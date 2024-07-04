@@ -7,7 +7,6 @@ import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/company/co
 import { CandidatesComponent } from "./pages/Candidates/candidates/candidates.component";
 import { NotfoundComponent } from "./pages/NotFound/notfound/notfound.component";
 import { MyProfileComponent } from "./pages/MyProfile/my-profile/my-profile.component";
-import { MyJobsComponent } from "./pages/MyJobs/my-jobs/my-jobs.component";
 import { SavedCandidatesComponent } from "./pages/SavedCadidates/saved-candidates/saved-candidates.component";
 import { SettingComponent } from "./pages/Setting/setting/setting.component";
 import { ApplicationsComponent } from "./pages/Applications/applications/applications.component";
@@ -20,7 +19,7 @@ import { SignInComponent } from "./components/sign-in/sign-in.component";
 // import { PasswordComponent } from "./components/password/password.component";
 // import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
 import { AdditionalQuestionsComponent } from "./components/additional-questions/additional-questions.component";
-
+import { UpdateJobComponent } from "./components/update-job/update-job.component";
 
 export const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
@@ -34,26 +33,27 @@ export const routes: Routes = [
     component: CompanyapplicantsComponent,
     children: [
       { path: "dashboard", component: DashboardComponent },
-      { path: "postJob", component: PostJobComponent },
+      // { path: "postJob", component: PostJobComponent },
        {path:'addJob',component:PostJobComponent},
-        {path:'AdditionalQuestions/:id', component:AdditionalQuestionsComponent},
+       {path:'AdditionalQuestions/:id', component:AdditionalQuestionsComponent},
        {path:'theJobs', component:JobsComponent},
       {
         path: "applicantcards/:jobId",
         component: ApplicantsCardGroupComponent,
       },
-      { path: "editprofile", component: MyProfileComponent },
+      { path: "editprofile", component:MyProfileComponent },
       { path: "savedcandidates", component: SavedCandidatesComponent },
       {
         path: "myJobs",
-        component: MyJobsComponent,
+        component: JobsComponent,
       },
+     { path: 'update-job/:id', component: UpdateJobComponent },
       {
         path: "setting",
         component: SettingComponent,
       },
     ],
-  },
+  }, 
   { path: "candidates", component: CandidatesComponent },
   { path: "register", component: RegisterComponent },
   { path: "two", component: RegisterTwoComponent },

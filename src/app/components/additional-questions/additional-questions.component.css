@@ -39,3 +39,9 @@
     font-size: 20px;
     margin-top: 20px;
   }
+
+  @media screen and(max-width:412px) {
+    .form-group{
+      width: 20%;
+    }
+  }

@@ -1,5 +1,4 @@
 
-
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
@@ -12,10 +11,12 @@ import { ApplicantsComponent } from "./components/applicants/applicants.componen
 // import { JobsApiService } from '../Services/jobs-api.service';
 import { JobsComponent } from "./components/jobs/jobs.component";
 import { PostJobComponent } from "./components/post-job/post-job.component";
-// import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/companyapplicants/companyapplicants.component";
 import { CompanyapplicantsComponent } from './pages/CompanyApplicants/company/companyapplicants.component';
 // import { BrowserModule } from '@angular/platform-browser';
 import {NavBarComponent } from './components/NavBar/nav-bar/nav-bar.component'
+// import { PasswordComponent } from './components/password/password.component';
+// import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { UpdateJobComponent } from './components/update-job/update-job.component';
 
 
 @Component({
@@ -32,7 +33,12 @@ import {NavBarComponent } from './components/NavBar/nav-bar/nav-bar.component'
     RegisterComponent,
     RegisterTwoComponent,
     ReactiveFormsModule,
-    SignInComponent,CompanyapplicantsComponent
+    SignInComponent,
+    CompanyapplicantsComponent,
+    
+    HttpClientModule,
+    UpdateJobComponent
+
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",

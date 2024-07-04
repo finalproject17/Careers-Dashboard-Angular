@@ -47,7 +47,7 @@ export class AdditionalQuestionsComponent implements OnInit {
     });
 
     //git job by id
-    this._JobApiService.getJobById(this.jobId).subscribe({
+    this._JobApiService.getTheJobById(this.jobId).subscribe({
       next:(response)=>{
         console.log(response.foundedJob)
         this.postedJob= response.foundedJob

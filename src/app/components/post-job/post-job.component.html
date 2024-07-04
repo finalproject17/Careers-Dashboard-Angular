@@ -1,9 +1,9 @@
-<h5 class="mainTitle">Post Job</h5>
+<!-- <h5 class="mainTitle">Post Job</h5> -->
 <div class="parent">
   <h6 class="subTitle">Job Details</h6>
   <form [formGroup]="jobForm" (ngSubmit)="addJob()">
 <!-- job title -->
-    <h6>{{jobForm.value | json}}</h6>
+    <!-- <h6>{{jobForm.value | json}}</h6> -->
     <label for="jobTitle">Job Title</label>
     <input type="text" id="jobTitle" formControlName="JobTitle" required>
     @if(jobForm.get('JobTitle')?.touched){
@@ -161,10 +161,9 @@
             @if(jobForm.get('jobRequirements')?.errors?.['required']){
                <p> jobRequirements is required</p>
             }
-           
+          
           </div>
         }
-
         <!-- Status -->
     <label for="status">Status</label>
     <select id="status" formControlName="status">
@@ -174,9 +173,15 @@
 <!-- companyId -->
     <input type="hidden" formControlName="companyId">
 
-    <!-- submit button -->
-    <div class="btns">
-      <button [disabled]="jobForm.invalid" type="submit" class="postJob"  >Post Job</button>
-    </div>
+         
+
+  
+          <!-- submit button -->
+          <div class="form-group">
+            <button [disabled]="jobForm.invalid" type="submit" class="postJob">Post Job</button>
+        </div>  
+        
+     
+    
   </form>
 </div>
