@@ -1,18 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostJobComponent } from './post-job.component';
+import { ResetPasswordComponent } from './reset-password.component';
 
-describe('PostJobComponent', () => {
-  let component: PostJobComponent;
-  let fixture: ComponentFixture<PostJobComponent>;
+
+describe('ResetPasswordComponent', () => {
+  let component: ResetPasswordComponent;
+  let fixture: ComponentFixture<ResetPasswordComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PostJobComponent]
+      imports: [ResetPasswordComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PostJobComponent);
+    fixture = TestBed.createComponent(ResetPasswordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,5 +22,3 @@ describe('PostJobComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-
