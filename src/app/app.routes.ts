@@ -1,6 +1,4 @@
 
-
-
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component";
 import {PostJobComponent} from './components/post-job/post-job.component'
@@ -34,15 +32,15 @@ export const routes: Routes = [
     component: CompanyapplicantsComponent,
     children: [
       { path: "dashboard", component: DashboardComponent },
-      { path: "postJob", component: PostJobComponent },
+      // { path: "postJob", component: PostJobComponent },
        {path:'addJob',component:PostJobComponent},
-        {path:'AdditionalQuestions/:id', component:AdditionalQuestionsComponent},
+      
        {path:'theJobs', component:JobsComponent},
       {
         path: "applicantcards/:jobId",
         component: ApplicantsCardGroupComponent,
       },
-      { path: "editprofile", component: MyProfileComponent },
+      { path: "editprofile", component:MyProfileComponent },
       { path: "savedcandidates", component: SavedCandidatesComponent },
       {
         path: "myJobs",
@@ -53,7 +51,7 @@ export const routes: Routes = [
         component: SettingComponent,
       },
     ],
-  },
+  },  {path:'AdditionalQuestions/:id', component:AdditionalQuestionsComponent},
   { path: "candidates", component: CandidatesComponent },
   { path: "register", component: RegisterComponent },
   { path: "two", component: RegisterTwoComponent },
