@@ -16,6 +16,7 @@ import { CompanyapplicantsComponent } from './pages/CompanyApplicants/company/co
 import {NavBarComponent } from './components/NavBar/nav-bar/nav-bar.component'
 import { PasswordComponent } from './components/password/password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { UpdateJobComponent } from './components/update-job/update-job.component';
 
 
 @Component({
@@ -37,6 +38,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     PasswordComponent,
     ResetPasswordComponent,
     HttpClientModule,
+    UpdateJobComponent
 
   ],
   templateUrl: "./app.component.html",

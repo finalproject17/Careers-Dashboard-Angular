@@ -7,7 +7,6 @@ import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/company/co
 import { CandidatesComponent } from "./pages/Candidates/candidates/candidates.component";
 import { NotfoundComponent } from "./pages/NotFound/notfound/notfound.component";
 import { MyProfileComponent } from "./pages/MyProfile/my-profile/my-profile.component";
-import { MyJobsComponent } from "./pages/MyJobs/my-jobs/my-jobs.component";
 import { SavedCandidatesComponent } from "./pages/SavedCadidates/saved-candidates/saved-candidates.component";
 import { SettingComponent } from "./pages/Setting/setting/setting.component";
 import { ApplicationsComponent } from "./pages/Applications/applications/applications.component";
@@ -19,6 +18,7 @@ import { RegisterTwoComponent } from "./components/register-two/register-two.com
 import { SignInComponent } from "./components/sign-in/sign-in.component";
 import { PasswordComponent } from "./components/password/password.component";
 import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
+import { UpdateJobComponent } from "./components/update-job/update-job.component";
 import { AdditionalQuestionsComponent } from "./components/additional-questions/additional-questions.component";
 
 
@@ -44,14 +44,15 @@ export const routes: Routes = [
       { path: "savedcandidates", component: SavedCandidatesComponent },
       {
         path: "myJobs",
-        component: MyJobsComponent,
+        component: JobsComponent,
       },
+     { path: 'update-job/:id', component: UpdateJobComponent },
       {
         path: "setting",
         component: SettingComponent,
       },
     ],
-  },  {path:'AdditionalQuestions/:id', component:AdditionalQuestionsComponent},
+  }, {path:'AdditionalQuestions/:id', component:AdditionalQuestionsComponent},
   { path: "candidates", component: CandidatesComponent },
   { path: "register", component: RegisterComponent },
   { path: "two", component: RegisterTwoComponent },
