@@ -1,8 +1,11 @@
 
 <div class="parent">
     <!-- <h2>{{ jobId }}</h2> -->
+     <!-- <p>{{postedJob | json}}</p> -->
     <form [formGroup]="additionalQuestionsForm" (ngSubmit)="onSubmit()">
+
       <!-- <h6>{{additionalQuestionsForm.value | json}}</h6> -->
+       
         <input type="hidden" formControlName="jobId">
 
       <label for="FirstQuestion">Question 1</label>

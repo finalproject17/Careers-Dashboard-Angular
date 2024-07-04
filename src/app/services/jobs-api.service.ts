@@ -22,10 +22,19 @@ export class JobsApiService {
       `${environment.baseUrl}/jobs/delete/${id}`
     );
   }
+  getJobById(id: string): Observable<any> {
+    return this.httpclient.get<any>(
+      `${environment.baseUrl}/jobs/get/${id}`
+    );
+  }
 
   postJob(job: any): Observable<any> {
     return this.httpclient.post<any>(`${environment.baseUrl}/jobs/create`, job);
   }
+   updateJobById(id:string, job:any):Observable<any>{
+
+    return this.httpclient.patch<any>(`${environment.baseUrl}/jobs/update/${id}`, job)
+   }
  // getJobsByCompanyName(companyName: string): Observable<any> {
   //   return this.httpclient.get<any>(
   //     `${environment.baseUrl}/jobs/getCompany?=${companyName}`
@@ -38,5 +47,5 @@ export class JobsApiService {
   //   );
   // }
 
-  updateJob() {}
+ 
 }

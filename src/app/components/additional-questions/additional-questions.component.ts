@@ -1,10 +1,11 @@
 // additional-questions.component.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators , ReactiveFormsModule} from '@angular/forms'; // Import FormBuilder and FormGroup for reactive forms
+import { FormBuilder, FormGroup, Validators , ReactiveFormsModule,FormControl} from '@angular/forms'; // Import FormBuilder and FormGroup for reactive forms
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment.development';
+import { JobsApiService } from '../../services/jobs-api.service';
 
 @Component({
   selector: 'app-additional-questions',
@@ -14,13 +15,15 @@ import { environment } from '../../../environments/environment.development';
   styleUrls: ['./additional-questions.component.css']
 })
 export class AdditionalQuestionsComponent implements OnInit {
-  jobId: string | null = null;
+  jobId: string ='';
   additionalQuestionsForm!: FormGroup; 
-
+  postedJob:any 
+  
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder ,
-    private httpClient : HttpClient
+    private httpClient : HttpClient,
+    private _JobApiService: JobsApiService
   ) {}
 
   ngOnInit(): void {
@@ -42,7 +45,22 @@ export class AdditionalQuestionsComponent implements OnInit {
       ThirdQuestion: ['', Validators.required],
       FourthQuestion: ['', Validators.required]
     });
-  }
+
+    //git job by id
+    this._JobApiService.getJobById(this.jobId).subscribe({
+      next:(response)=>{
+        console.log(response.foundedJob)
+        this.postedJob= response.foundedJob
+        this.postedJob.additionalJobForm= true
+        console.log(this.postedJob.additionalJobForm)
+      }
+
+    })
+
+  
+}
+
+  
 
   onSubmit() {
       const formData = {
@@ -56,6 +74,13 @@ export class AdditionalQuestionsComponent implements OnInit {
         error:(error)=>{
           console.log(error)
         }
+      })
+      ///update the job 
+      this._JobApiService.updateJobById(this.jobId, this.postedJob).subscribe({
+       next:(res)=>{
+        console.log(res)
+        // alert('job updated successfyly')
+       }
       })
   }
 }

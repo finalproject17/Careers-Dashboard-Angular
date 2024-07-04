@@ -23,16 +23,12 @@ import { Router } from "@angular/router";
 export class PostJobComponent implements OnInit {
   company:any ={}
   jobForm!: FormGroup;
+  companyId:string=""
   skillsList: string[] = [
-    "JavaScript",
-    "HTML",
-    "CSS",
-    "Angular",
-    "React",
-    "Node.js",
-    "Python",
-    "Next.js",
-    "vue",
+    "JavaScript", "HTML", "CSS", "Angular", "React","Node.js","Python", "Next.js", "vue", "OOP", "Problem Solving",
+   "c#","c++","java","php","Design pattern","Figma", "Photoshop", "Adobe Xd", "jQuery", "Sass", "Agile ", "Bootstrap",
+   "PostgreSQL","NoSQL Database","Design Thinking","Adobe Illustrator","•UI/UX Design principles ",
+   "Visual Design For Web"
   ];
   requirementsList: string[] = [
     "Bachelor's Degree",
@@ -51,6 +47,7 @@ export class PostJobComponent implements OnInit {
     if (companyInfo) {
      this.company = JSON.parse(companyInfo);
      console.log(this.company);
+     this.companyId= this.company.id
     }
 
     //  initialize the jobForm
@@ -62,7 +59,7 @@ export class PostJobComponent implements OnInit {
         Validators.maxLength(100),
         Validators.minLength(3),
       ]),
-      JobCategory: new FormControl([], [Validators.required]),
+      JobCategory: new FormControl("", [Validators.required]),
       JobSubCategory: new FormControl(["other"],[Validators.required]),
       description: new FormControl("", [
         Validators.required,
@@ -93,6 +90,7 @@ export class PostJobComponent implements OnInit {
       companyId: new FormControl(this.company.id, [
         Validators.required,
       ]),
+      additionalJobForm : new FormControl(false),
     });
 
    }
@@ -126,7 +124,9 @@ export class PostJobComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result === 'addQuestions') {
         console.log('User chose to add additional questions.');
-        this.router.navigate(['/AdditionalQuestions', jobId]); // Navigate to additional questions with job ID
+        this.router.navigate([`/company/${ this.companyId}/AdditionalQuestions`, jobId]); // Navigate to additional questions with job ID
+        
+      
       }
     });
   }

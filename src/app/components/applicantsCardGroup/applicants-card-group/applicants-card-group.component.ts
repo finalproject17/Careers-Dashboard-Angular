@@ -8,7 +8,7 @@ import { NgFor } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'applicanappts-card-group',
+  selector: '-applicanappts-card-group',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './applicants-card-group.component.html',

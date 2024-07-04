@@ -8,11 +8,11 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule,ReactiveFormsModule],
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.css'] // Corrected property name
+  styleUrl: './sign-in.component.css'
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent implements OnInit{
   registerForm: FormGroup = new FormGroup({});
 
   constructor(

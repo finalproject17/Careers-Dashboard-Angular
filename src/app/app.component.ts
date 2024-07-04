@@ -8,7 +8,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { HttpClientModule } from '@angular/common/http';
-
 import { ApplicantsComponent } from "./components/applicants/applicants.component";
 // import { JobsApiService } from '../Services/jobs-api.service';
 import { JobsComponent } from "./components/jobs/jobs.component";
@@ -17,8 +16,6 @@ import { PostJobComponent } from "./components/post-job/post-job.component";
 import { CompanyapplicantsComponent } from './pages/CompanyApplicants/company/companyapplicants.component';
 // import { BrowserModule } from '@angular/platform-browser';
 import {NavBarComponent } from './components/NavBar/nav-bar/nav-bar.component'
-import { PasswordComponent } from './components/password/password.component';
-import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 
 @Component({
@@ -35,12 +32,7 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
     RegisterComponent,
     RegisterTwoComponent,
     ReactiveFormsModule,
-    SignInComponent,
-    CompanyapplicantsComponent,
-    PasswordComponent,
-    ResetPasswordComponent,
-    HttpClientModule,
-
+    SignInComponent,CompanyapplicantsComponent
   ],
   templateUrl: "./app.component.html",
   styleUrl: "./app.component.css",

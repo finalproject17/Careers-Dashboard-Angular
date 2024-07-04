@@ -5,5 +5,5 @@ export const environment = {
    githubRedirectUri: 'http://localhost:4200/register',
 
      baseUrl : "https://deploying-backend-taupe.vercel.app"
-   // baseUrl:'http://localhost:3001', 
+    // baseUrl:'http://localhost:3001', 
 };
