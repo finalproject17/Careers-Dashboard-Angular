@@ -1,9 +1,9 @@
-<!-- <h5 class="mainTitle">Post Job</h5> -->
-<div class="parent">
+
+<div class="container">
+  <div class="row d-flex justify-content-center ">
+    <div class="col-md-8">
   <h6 class="subTitle">Job Details</h6>
   <form [formGroup]="jobForm" (ngSubmit)="addJob()">
-<!-- job title -->
-    <!-- <h6>{{jobForm.value | json}}</h6> -->
     <label for="jobTitle">Job Title</label>
     <input type="text" id="jobTitle" formControlName="JobTitle" required>
     @if(jobForm.get('JobTitle')?.touched){
@@ -184,4 +184,6 @@
      
     
   </form>
+</div>
+</div>
 </div>

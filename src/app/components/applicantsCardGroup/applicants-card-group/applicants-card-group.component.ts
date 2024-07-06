@@ -7,8 +7,9 @@ import { CommonModule } from '@angular/common';
 import { NgFor } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
+
 @Component({
-  selector: '-applicanappts-card-group',
+  selector: 'applicanappts-card-group',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './applicants-card-group.component.html',
@@ -26,7 +27,8 @@ export class ApplicantsCardGroupComponent implements OnInit {
 
   constructor(
     private jobService: JobServiceService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private _router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -88,4 +90,16 @@ export class ApplicantsCardGroupComponent implements OnInit {
   getPagesArray(): number[] {
     return Array.from({ length: this.totalPages }, (_, i) => i + 1);
   }
+
+
+//   navigateToUserProfile()
+//   {
+//     this._router.navigateByUrl ("https://react-app-nine-beryl.vercel.app/profile/6672138d0459e152c265b2ad")
+//   }
+// }
+
+
+navigateToUserProfile(userId: string) {
+  window.location.href = `https://react-app-nine-beryl.vercel.app/profile/${userId}`;
+}
 }

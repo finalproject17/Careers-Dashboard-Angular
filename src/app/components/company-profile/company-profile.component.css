@@ -1,0 +1,28 @@
+/* src/app/company-profile/company-profile.component.css */
+.company-list {
+    float: left;
+    width: 30%;
+  }
+  
+  .company-details {
+    float: right;
+    width: 60%;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    cursor: pointer;
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  li:hover {
+    background-color: #e0e0e0;
+  }
+  

@@ -2,7 +2,6 @@
 import { Routes } from "@angular/router";
 import { HomeComponent } from "./pages/home/home.component";
 import {PostJobComponent} from './components/post-job/post-job.component'
-// import { AboutUsComponent } from "./pages/about-us/about-us.component";
 import { CompanyapplicantsComponent } from "./pages/CompanyApplicants/company/companyapplicants.component";
 import { CandidatesComponent } from "./pages/Candidates/candidates/candidates.component";
 import { NotfoundComponent } from "./pages/NotFound/notfound/notfound.component";
@@ -16,18 +15,12 @@ import { JobsComponent } from "./components/jobs/jobs.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { RegisterTwoComponent } from "./components/register-two/register-two.component";
 import { SignInComponent } from "./components/sign-in/sign-in.component";
-// import { PasswordComponent } from "./components/password/password.component";
-// import { ResetPasswordComponent } from "./components/reset-password/reset-password.component";
 import { AdditionalQuestionsComponent } from "./components/additional-questions/additional-questions.component";
 import { UpdateJobComponent } from "./components/update-job/update-job.component";
 
 export const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
   { path: "home", component: HomeComponent },
-
-//   { path: "aboutus", component: AboutUsComponent },
-  
-
   {
     path: "company/:companyId",
     component: CompanyapplicantsComponent,
@@ -58,10 +51,5 @@ export const routes: Routes = [
   { path: "register", component: RegisterComponent },
   { path: "two", component: RegisterTwoComponent },
   { path: "sign", component: SignInComponent },
-//   { path: "pass", component: PasswordComponent },
-//   { path: "rest", component: ResetPasswordComponent },
-  {
-    path: "**",
-    component: NotfoundComponent,
-  },
+  { path: "**", component: NotfoundComponent},
 ];

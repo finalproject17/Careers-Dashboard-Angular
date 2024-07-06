@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .contact-info, .social-media, .other-candidates, .vacancy {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+        .company-profile {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        .company-info p {
+            margin-bottom: 0.5rem;
+        }
+        .company-info strong {
+            font-weight: bold;
+        }
+        .job-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body><div *ngIf="selectedCompany">
+    <h2>{{ selectedCompany.companyName }}</h2>
+    <p><strong>Industry: {{ selectedCompany.companyIndustry }}</strong></p>
+    <p><strong>Size:</strong> {{ selectedCompany.companySize }}</p>
+    <p><strong>Founded Year:</strong> {{ selectedCompany.foundedYear }}</p>
+    <p><strong>Phone:</strong> {{ selectedCompany.phone }}</p>
+    <p><strong>City:</strong> {{ selectedCompany.city }}</p>
+    <p><strong>State:</strong> {{ selectedCompany.state }}</p>
+  </div>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="contact-info">
+                    <h5>Julia Ark</h5>
+                    <p>Programming</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Egypt, Alex</p>
+                    <p><i class="fas fa-briefcase"></i> Programming</p>
+                    <p><i class="fas fa-globe"></i> www.labyrinth.com</p>
+                    <p><i class="fas fa-users"></i> 11-50 employees</p>
+                    <p><i class="fas fa-calendar-alt"></i> Founded in 2000</p>
+                    <h6>Contact Info</h6>
+                    <p><i class="fas fa-phone"></i> 123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> labyrinth54gmail.com</p>
+                    <h6>Social Media</h6>
+                    <p><i class="fab fa-facebook"></i> <i class="fab fa-linkedin"></i></p>
+                </div>
+                <div class="other-candidates">
+                    <h6>Other Candidates</h6>
+                    <div class="candidate">
+                        <img src="candidate1.jpg" class="img-fluid rounded-circle" alt="Candidate">
+                        <p>Julia Ark <br>Graphic Designer</p>
+                    </div>
+                    <button class="btn btn-success btn-block mt-3">Show More</button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="company-profile">
+                    <h2>Labyrinth</h2>
+                    <div class="company-info">
+                        <p><strong>Industry:</strong> Media and technology</p>
+                        <p><strong>Size:</strong> 11-50 employees</p>
+                        <p><strong>Founded Year:</strong> 2000</p>
+                        <p><strong>Phone:</strong> 123 456 7890</p>
+                        <p><strong>City:</strong> Alexandria</p>
+                        <p><strong>State:</strong> Egypt</p>
+                    </div>
+                </div>
+                <div class="company-overview">
+                    <h4>Overview</h4>
+                    <p>Privately held mergers and acquisitions firm focused on media and technology assets...</p>
+                </div>
+                <div class="vacancy">
+                    <h4>Open vacancies at Labyrinth</h4>
+                    <div class="job-card">
+                        <h5>Developer & expert in java c++</h5>
+                        <p>12 days ago</p>
+                        <p>Full time, Remote, Egypt, Alex, $9000 / Monthly</p>
+                        <p>When team members told us they needed more flexibility...</p>
+                        <button class="btn btn-primary">Apply Now</button>
+                    </div>
+                    <button class="btn btn-success btn-block mt-3">Show More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
